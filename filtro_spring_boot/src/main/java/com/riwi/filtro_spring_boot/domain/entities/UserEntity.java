@@ -23,7 +23,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserEntity {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -39,12 +39,10 @@ public class UserEntity {
 
     @Column(nullable = false)
     private Boolean active;
-    
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy = "survey", fetch = FetchType.EAGER,cascade = CascadeType.ALL, orphanRemoval = false)
+    @OneToMany(mappedBy = "creator", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = false)
     private List<Survey> surveys;
-
 
 }
