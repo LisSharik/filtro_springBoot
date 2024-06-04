@@ -1,5 +1,7 @@
 package com.riwi.filtro_spring_boot.api.dto.request;
 
+import java.util.List;
+
 import com.riwi.filtro_spring_boot.util.enums.QuestionType;
 
 import jakarta.validation.constraints.NotBlank;
@@ -26,4 +28,6 @@ public class QuestionRequest {
 
     @NotNull(message = "Survey ID is required")
     private Long surveyId;
+
+    private List<OptionQuestionRequest> options;
 }

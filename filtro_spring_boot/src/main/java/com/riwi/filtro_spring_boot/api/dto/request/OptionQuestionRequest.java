@@ -3,12 +3,12 @@ package com.riwi.filtro_spring_boot.api.dto.request;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 @Data
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class OptionQuestionRequest {
@@ -19,6 +19,6 @@ public class OptionQuestionRequest {
     @NotNull(message = "Option status is required")
     private Boolean active;
 
-    @NotNull(message = "Question ID is required")
-    private Long questionId;
+    // @NotNull(message = "Question ID is required")
+    // private Long questionId;
 }
