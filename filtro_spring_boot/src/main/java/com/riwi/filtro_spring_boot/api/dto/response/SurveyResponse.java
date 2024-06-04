@@ -14,6 +14,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SurveyResponse extends SurveyBasicResponse {
-    private List<QuestionBasicResponse> questions;
-    private UserBasicResponse creator;
+    private List<QuestionToSurveyResponse> questions;
+   
 }

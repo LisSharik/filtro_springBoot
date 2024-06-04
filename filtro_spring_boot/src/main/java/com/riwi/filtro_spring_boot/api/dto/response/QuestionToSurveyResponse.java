@@ -13,6 +13,6 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class QuestionResponse extends QuestionBasicResponse {
+public class QuestionToSurveyResponse extends QuestionBasicResponse {
     private List<OptionQuestionBasicResponse> optionQuestions;
 }
