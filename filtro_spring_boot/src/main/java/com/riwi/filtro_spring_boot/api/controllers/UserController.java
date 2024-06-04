@@ -11,6 +11,7 @@ import com.riwi.filtro_spring_boot.api.dto.request.UserRequest;
 import com.riwi.filtro_spring_boot.api.dto.response.UserBasicResponse;
 import com.riwi.filtro_spring_boot.infraestructure.abstract_services.IUserService;
 
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,6 +32,7 @@ public class UserController {
     private final IUserService userService;
 
 
+    @Operation(summary = "Todos los usuarios por pagina y tamaño", description = "Devuelve todos los usuarios.")
     @GetMapping
     public ResponseEntity<Page<UserBasicResponse>> getAll(
         @RequestParam(defaultValue = "1") int page,
@@ -38,18 +40,20 @@ public class UserController {
         ) {
             return ResponseEntity.ok(this.userService.getAll(page - 1, size));
     }
-    
+
+    @Operation(summary = "Busca un usuario por id", description = "Devuelve un usuario dependiendo de su ID")
     @GetMapping("/{id}")
     public ResponseEntity<UserBasicResponse> getById(@PathVariable Long id){
         return ResponseEntity.ok(this.userService.get(id));
     }
 
-
+    @Operation(summary = "Crea un usuario", description = "Crea un usuario")
     @PostMapping
     public ResponseEntity<UserBasicResponse> insert(@Validated @RequestBody UserRequest request) {
         return ResponseEntity.ok(this.userService.create(request));
     }
 
+    @Operation(summary = "Actualiza un usuario dependiendo de su id", description = "Actualiza un usuario dependiendo de su id")
     @PutMapping("/{id}")
     public ResponseEntity<UserBasicResponse> update(@Validated @RequestBody UserRequest request, @PathVariable Long id) {
         return ResponseEntity.ok(this.userService.update(request, id));
